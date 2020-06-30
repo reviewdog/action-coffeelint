@@ -1,0 +1,55 @@
+name: 'Run coffeelint with reviewdog'
+description: '🐶 Run coffeelint with reviewdog on pull requests to improve code review experience.'
+author: 'wesleimp (reviewdog)'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+    default: ${{ github.token }}
+  level:
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'error'
+  reporter:
+    description: |
+      Reporter of reviewdog command [github-pr-check,github-pr-review].
+      Default is github-pr-check.
+      github-pr-review can use Markdown and add a link to rule page in reviewdog reports.
+    default: 'github-pr-check'
+  filter_mode:
+    description: |
+      Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
+      Default is added.
+    default: 'added'
+  fail_on_error:
+    description: |
+      Exit code for reviewdog when errors are found [true,false]
+      Default is `false`.
+    default: 'false'
+  reviewdog_flags:
+    description: 'Additional reviewdog flags'
+    default: ''
+  coffeelint_flags:
+    description: "flags and args of coffeelint command. Default: '.'"
+    default: '.'
+  workdir:
+    description: "The directory from which to look for and run coffeelint. Default '.'"
+    default: '.'
+  tool_name:
+    description: 'Tool name to use for reviewdog reporter'
+    default: 'coffeelint'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github_token }}
+    - ${{ inputs.level }}
+    - ${{ inputs.reporter }}
+    - ${{ inputs.filter_mode }}
+    - ${{ inputs.fail_on_error }}
+    - ${{ inputs.reviewdog_flags }}
+    - ${{ inputs.coffeelint_flags }}
+    - ${{ inputs.workdir }}
+    - ${{ inputs.tool_name }}
+branding:
+  icon: 'check-circle'
+  color: 'blue'

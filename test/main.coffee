@@ -1,0 +1,3 @@
+class Gangster
+    wasItAGoodDay: () ->
+        yeah
