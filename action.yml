@@ -40,16 +40,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.github_token }}
-    - ${{ inputs.level }}
-    - ${{ inputs.reporter }}
-    - ${{ inputs.filter_mode }}
-    - ${{ inputs.fail_on_error }}
-    - ${{ inputs.reviewdog_flags }}
-    - ${{ inputs.coffeelint_flags }}
-    - ${{ inputs.workdir }}
-    - ${{ inputs.tool_name }}
 branding:
   icon: 'check-circle'
   color: 'blue'
