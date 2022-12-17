@@ -5,13 +5,9 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 cd "${GITHUB_WORKSPACE}/${INPUT_WORKDIR}" || exit 1
 git config --global --add safe.directory $GITHUB_WORKSPACE || exit 1
 
-if [ ! -f "$(npm bin)/coffeelint" ]; then
-  npm install
-fi
+npx -y coffeelint --version
 
-$(npm bin)/coffeelint --version
-
-$(npm bin)/coffeelint --reporter checkstyle ${INPUT_COFFEELINT_FLAGS:-'.'} \
+npx coffeelint --reporter checkstyle ${INPUT_COFFEELINT_FLAGS:-'.'} \
     | reviewdog -f="checkstyle" \
         -name="${INPUT_TOOL_NAME}" \
         -reporter="${INPUT_REPORTER:-github-pr-check}" \
