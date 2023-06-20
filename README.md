@@ -5,7 +5,7 @@
 [![release](https://github.com/reviewdog/action-coffeelint/workflows/release/badge.svg)](https://github.com/reviewdog/action-coffeelint/actions?query=workflow%3Arelease)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/reviewdog/action-coffeelint?logo=github&sort=semver)](https://github.com/reviewdog/action-coffeelint/releases)
 
-This action runs [coffeelint](http://coffeelint.org) with [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve code review experience.
+This action runs [coffeelint](https://coffeelint.github.io/) with [reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve code review experience.
 
 ![Example comment made by the action, with github-pr-review](examples/coffeelint-pr-review.png)
 
