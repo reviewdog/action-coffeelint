@@ -80,9 +80,9 @@ jobs:
     name: runner / coffeelint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1.2.0
       - name: coffeelint
-        uses: reviewdog/action-coffeelint@v1
+        uses: reviewdog/action-coffeelint@9499d059575b316fe7facee8f5bb20b10fee3258 # v1.14.2
         with:
           reporter: github-pr-review # Change reporter.
           coffeelint_flags: 'src/'
